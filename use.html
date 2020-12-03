@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <style type="text/css" media="screen"></style>
+    <title>UEditor富文本编辑器，轻量，可定制，注重用户体验。</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ueditor {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe class="ueditor" id="ueditor" src="index.html" frameborder="no" border="0" marginwidth="0" marginheight="0"
+        scrolling="no" allowtransparency="yes"></iframe>
+
+    <script>
+        var ueIframeWin = document.getElementById("editormd").contentWindow;
+        setTimeout(function () {
+            //设置html内容
+            ueIframeWin.postMessage({
+                method: 'setContent',
+                content: '<p>Hello UEditor</p>'
+            }, "*");
+            //获取html内容
+            ueIframeWin.postMessage({
+                method: 'getContent'
+            }, "*");
+
+            //监听子页面返回
+            window.addEventListener("message", function (event) {
+                let data = event.data;
+                switch (data.method) {
+                    case 'setContent': //设置内容返回
+                        console.log(data.content);
+                        break;
+                    case 'getContent': //获取html内容返回
+                        console.log(data.content);
+                        break;
+                    case 'onload': //初始化完成
+                        console.log(data.content);
+                        break;
+                    case 'onchange': //内容改变事件
+                        console.log(data.content);
+                        break;
+                }
+            }, false);
+        }, 100);
+    </script>
+
+</body>
+
+</html>

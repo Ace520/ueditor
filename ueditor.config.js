@@ -33,11 +33,7 @@
     //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
     toolbars: [
       [
-        "fullscreen",
         "source",
-        "|",
-        "undo",
-        "redo",
         "|",
         "bold",
         "italic",
@@ -127,10 +123,8 @@
         "splittocols",
         "charts",
         "|",
-        "print",
         "preview",
         "searchreplace",
-        "drafts",
         "help"
       ]
     ]
@@ -198,7 +192,7 @@
     //启用图片拉伸缩放
     //,imageScaleEnabled: true
 
-    , fullscreen: true //是否开启初始化时即全屏，默认关闭
+    // , fullscreen: true //是否开启初始化时即全屏，默认关闭
 
     //,imagePopup:true      //图片操作的浮层开关，默认打开
 
