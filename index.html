@@ -38,13 +38,13 @@
         var ue = UE.getEditor('editor');
         ue.ready(function () {
             window.parent.postMessage({
-                method: "onload",
+                method: "onLoad",
                 content: "success"
             }, "*");
         })
         ue.addListener('contentChange', function (editor) {
             window.parent.postMessage({
-                method: "onchange",
+                method: "onChange",
                 content: ue.getContent()
             }, "*");
         });
